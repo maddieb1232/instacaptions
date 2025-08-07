@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>InstaCaption AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #e75480;
+    }
+    select, button {
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #e75480;
+      color: white;
+      cursor: pointer;
+    }
+    #caption {
+      margin-top: 30px;
+      font-size: 20px;
+      font-style: italic;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>InstaCaption AI</h1>
+  <p>Pick a vibe and get your perfect caption ✨</p>
+
+  <select id="vibe">
+    <option value="funny">Funny</option>
+    <option value="sassy">Sassy</option>
+    <option value="romantic">Romantic</option>
+    <option value="travel">Travel</option>
+    <option value="inspo">Inspirational</option>
+  </select>
+
+  <br><br>
+  <button onclick="generateCaption()">Generate Caption</button>
+
+  <div id="caption"></div>
+
+  <script>
+    const captions = {
+      funny: [
+        "If I were you, I’d adore me too.",
+        "Serving looks, not lunch.",
+        "I put the ‘pro’ in procrastination.",
+        "404 Error: Motivation not found.",
+      ],
+      sassy: [
+        "Confidence level: Selfie with no filter.",
+        "Too glam to give a damn.",
+        "Catch flights, not feelings.",
+        "Make them stop and stare.",
+      ],
+      romantic: [
+        "You're my favorite notification.",
+        "Love you to the moon and to Starbucks.",
+        "Together is my favorite place.",
+        "Stolen kisses are always the sweetest.",
+      ],
+      travel: [
+        "Wander often, wonder always.",
+        "Catching flights and feelings.",
+        "Vacation mode: activated.",
+        "Passport in one hand, confidence in the other.",
+      ],
+      inspo: [
+        "Dream big. Eat bigger.",
+        "Be a voice, not an echo.",
+        "Create your own sunshine.",
+        "Don’t wait for opportunity. Create it.",
+      ]
+    };
+
+    function generateCaption() {
+      const vibe = document.getElementById("vibe").value;
+      const options = captions[vibe];
+      const randomCaption = options[Math.floor(Math.random() * options.length)];
+      document.getElementById("caption").innerText = `"${randomCaption}"`;
+    }
+  </script>
+</body>
+</html>
